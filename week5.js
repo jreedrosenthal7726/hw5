@@ -70,8 +70,6 @@ window.addEventListener('DOMContentLoaded', async function() {
     let projections = json.forecast.forecastday
     for (let i=0; i < projections.length; i++) {
       let forecastInfo = projections[i]
-      console.log(`index is ${i} and forecast info is ${forecastInfo}` )
-
       let forecastElement = document.querySelector(`.forecast`)
       forecastElement.insertAdjacentHTML('beforeend', `
       <div class="text-center space-y-8">
