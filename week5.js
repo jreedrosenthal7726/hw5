@@ -65,7 +65,9 @@ window.addEventListener('DOMContentLoaded', async function() {
     let json = await response.json()
     console.log(json)
     // - Write the json-formatted data to the JavaScript console
-    
+    document.querySelector(`.forecast`).innerHTML = `
+    <div class="text-center space-y-8">
+    <div class="font-bold text-3xl">${definedForecast} Day Forecast</div>`
 
     let projections = json.forecast.forecastday
     for (let i=0; i < projections.length; i++) {
@@ -73,7 +75,7 @@ window.addEventListener('DOMContentLoaded', async function() {
       let forecastElement = document.querySelector(`.forecast`)
       forecastElement.insertAdjacentHTML('beforeend', `
       <div class="text-center space-y-8">
-      <div class="font-bold text-3xl">${definedForecast} Day Forecast</div>
+      <div class="font-bold text-3xl"></div>
       <div>
         <img src="https:${forecastInfo.day.condition.icon}" class="mx-auto">
         <h1 class="text-2xl text-bold text-gray-500">${forecastInfo.date}</h1>
